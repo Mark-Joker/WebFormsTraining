@@ -84,13 +84,13 @@
 
         <div id="CategoryMenu" style="text-align: center">       
             <asp:ListView ID="categoryList"  
-                ItemType="System.String" 
+                ItemType="Model.Category" 
                 runat="server"
                 SelectMethod="GetCategories" >
                 <ItemTemplate>
                     <b style="font-size: large; font-style: normal">
-                        <a href="/ProductList.aspx?id=<%#: Item %>">
-                        <%#: Item %>
+                        <a href="/ProductsList.aspx?id=<%#: Item.CategoryID %>">
+                        <%#: Item.CategoryName %>
                         </a>
                     </b>
                 </ItemTemplate>

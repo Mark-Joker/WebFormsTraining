@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using DAL;
+using Model;
 
 namespace WebFormsApp
 {
@@ -77,12 +79,11 @@ namespace WebFormsApp
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
-        public IList<String>  GetCategories()
+        public IList<Category>  GetCategories()
         {
-            var catigories = new List<String> { "Boats", "Bolls", "velo" };
-            return catigories;
-
-       
+            ICatalogDataService catDataService = new NoDbCatalogDataService();
+            return catDataService.GetAllCategories();
+            
         }
 
     }
